@@ -2,7 +2,8 @@ Process
 1)setting up shared folders with vbox
 2)had to unzip given file foor being able to share
 3)mount shared folder in dierectory
-
+    -create dierectory ctm_ws
+    -mount the folder ctm_ws
 Learning
 1)A workspace is a directory containing ROS 2 packages
 
