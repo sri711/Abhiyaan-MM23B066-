@@ -1,5 +1,7 @@
 Process
 1)setting up shared folders with vbox
+2)had to unzip given file foor being able to share
+
 Learning
 1)A workspace is a directory containing ROS 2 packages
 
