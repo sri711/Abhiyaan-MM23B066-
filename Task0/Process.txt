@@ -1,0 +1,17 @@
+Process
+
+1)set up ubuntu 22.04 by virtual box
+2)had to enable shared clipboard between windows and ubuntu to enable smooth operation
+3)install ROS2 Humble.
+    -used the binary files approach (Debian packages)
+        -setup locale supporting utf-8
+        -setup sources(ubuntu universe rpository,ROS2 GPG key)
+        -Desktop install
+    -ran sample code of talker(using c++) and receiver(python)
+
+Learnings
+1)virtual box
+2)Ubuntu vs linux - linux is a kernel 
+3)BASH-Bourne Again Shell
+    -sudo-super user do
+    -APT-advanced pakaging tool
