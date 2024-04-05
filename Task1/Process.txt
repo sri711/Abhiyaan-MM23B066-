@@ -2,7 +2,9 @@ Process
 1)setting up shared folders with vbox
 2)had to unzip given file foor being able to share
 3)given folder in itself is a workspace, no need to mount it on a workspace again and buil it
-4)
+4)shared file from windows to vbox
+5)opened it using terminal and ran the commands given in the app
+6)subscribing to the given topic
 Learning
 1)A workspace is a directory containing ROS 2 packages
 
