@@ -11,5 +11,26 @@ Learning
  NODES
     -each node is responsible for a single, modular purpose
     -nodes can send and receive data from other nodes thro topics, services, actions, or parameters
+    -A single exxectuable program file can have multiple nodes
+    -"ros2 run" command runs the executable from a packaage
+    -"ros2 node list" command will show you the names of all running nodes
+    -remapping command
+    -node info command
+TOPICS
+    -topics act as a bus for nodes to exchange messages
+    -rqt_graph helps visualize all the nodes and the topics subscribed to
+    - ros2 topic list command
+    -ros2 topic echo command
+    -ros2 topic info command
+    -ros2 interface show command
+    -ros2 topic pub command-publishes messages dierectly if given in proper format
+    -publishing the command w the rate option gives out a steady stream of command instead of a one time message
+    -ros2 topic hz command
+SERVICES 
+    -Services are another method of communication for NODES
+    -based on a call-and-response model versus the publisher-subscriber model of topics
+    -provides data only when specifically called upon
+    -ros2 serivce type command
+    -
 
 

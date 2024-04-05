@@ -14,4 +14,4 @@ Learnings
 3)BASH-Bourne Again Shell
     -sudo-super user do
     -APT-advanced pakaging tool
-4)have to give command "source /opt/ros/humble/setup.bash" to allow terminal to work with ROS2
+4)have to give command "source /opt/ros/humble/setup.bash" to source ROS2 in the terminal
