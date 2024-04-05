@@ -7,7 +7,9 @@ Process
 6)subscribing to the given topic
 
 Learning
-1)A workspace is a directory containing ROS 2 packages
+WORKSPACE 
+    -A workspace is a directory containing ROS 2 packages
+    -it is confined to be in a particular strructure
  NODES
     -each node is responsible for a single, modular purpose
     -nodes can send and receive data from other nodes thro topics, services, actions, or parameters
@@ -31,6 +33,31 @@ SERVICES
     -based on a call-and-response model versus the publisher-subscriber model of topics
     -provides data only when specifically called upon
     -ros2 serivce type command
+    -ros2 sevice list -t command
+    -ros2 service find command
+    -ros2 interface show command
+    -the request and response both have different structures seperated by --- in the above command
+    -ros2 service call command
+PARAMETERS 
+    -A parameter is a configuration value of a node
+    -basically the settings for the node
+    -ros2 param list command
+    -ros2 param get command
+    -ros2 param set command
+    -ros2 param dump command
+    -ros2 param load command
+ACTIONS 
+    -it is a communication type for long running task
+    -three parts a goal, feedback, and  result
+    -Actions are built on topics and services
+    - same as service but actions can be cancelled and actions provide steady feedback
+    -ros2 node info command-list of actions node provides
+    -ros2 action list command
+    -ros2 action info command
+    -ros2 interface show command
+    -ros2 action send_goal command-value in YAML -human-readable data serialization language
+RECORDING AN DPLAYING BACK DATA 
+COLCON
     -
 
 
