@@ -5,6 +5,11 @@ Process
 4)shared file from windows to vbox
 5)opened it using terminal and ran the commands given in the app
 6)subscribing to the given topic
+
 Learning
 1)A workspace is a directory containing ROS 2 packages
+ NODES
+    -each node is responsible for a single, modular purpose
+    -nodes can send and receive data from other nodes thro topics, services, actions, or parameters
+
 

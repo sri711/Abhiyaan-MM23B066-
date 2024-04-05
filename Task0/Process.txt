@@ -1,9 +1,7 @@
 Process
 
 1)set up ubuntu 22.04 by virtual box
-2)had to enable shared clipboard between windows and ubuntu to enable smooth operation
- (had to ensure guest additions were installed)
-3)install ROS2 Humble.
+2)install ROS2 Humble.
     -used the binary files approach (Debian packages)
         -setup locale supporting utf-8
         -setup sources(ubuntu universe rpository,ROS2 GPG key)
@@ -16,3 +14,4 @@ Learnings
 3)BASH-Bourne Again Shell
     -sudo-super user do
     -APT-advanced pakaging tool
+4)have to give command "source /opt/ros/humble/setup.bash" to allow terminal to work with ROS2
