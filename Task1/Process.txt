@@ -5,6 +5,9 @@ Process
 4)shared file from windows to vbox
 5)opened it using terminal and ran the commands given in the app
 6)subscribing to the given topic
+............
+RIDDLE1-I heard: "Knock, Knock. Who is there? Tank. Tank who?"
+ANSWER - it is ffair to assume the next topic's namme is Tank
 
 Learning
 WORKSPACE 
