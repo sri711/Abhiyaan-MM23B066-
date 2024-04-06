@@ -8,6 +8,7 @@ Process
 ............
 RIDDLE1-I heard: "Knock, Knock. Who is there? Tank. Tank who?"
 ANSWER - it is ffair to assume the next topic's namme is Tank
+-modified the script to subscribe to the topic Tank in the same node 
 
 Learning
 WORKSPACE 
