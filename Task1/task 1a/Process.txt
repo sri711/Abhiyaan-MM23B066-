@@ -4,7 +4,7 @@ PROCESS:
 2)had to unzip given file for being able to share
 3)given folder in itself is a workspace, no need to mount it on a workspace again and buil it
 4)shared file from windows to vbox
-5)opened it using terminal and created a node
+5)opened it using terminal and created a subscribeer node, MinimalSubscriber
 6)subscribing to the given topic /start_here
 7)subsctibing to subsequent topics form the same node by writing a publisher subscriber script using python
 8)this script through a single node subscribes to multiple topics and prints the message in the terminal
@@ -90,6 +90,9 @@ ACTIONS
     -ros2 action send_goal command-value in YAML -human-readable data serialization language
 COLCON BUILD
 RCLYPY - ros client library for python
+SPIN NODE - starts the nodes events loop, processes incoming data
+__name__ means name of the current module
+we set the value of __name__ to '__main__' 
 
 
 
