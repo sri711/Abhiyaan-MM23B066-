@@ -3,7 +3,9 @@ PROCESS
 -imutils is a openCV package with series of convenience functions to make basic image processing functions such as 
  translation, rotation, resizing, skeletonization, displaying Matplotlib images, sorting contours, detecting edges, 
  and much more easier with OpenCV
- 
+-We are using the cityscape dataset which has aldready been pocessed by annotations and labels
+-this model has about 20 classes of objects found in an urbans etting
+
 LEARNING
 image segmentation is of 3types 
 -Semantic segmentation
@@ -27,9 +29,11 @@ to build a model we use convolutional neural networks
             -"Max" unpooling
     -we model the CNN using the cross entropy loss function
 
+ENet (Efficient Neural Network) gives the ability to perform pixel-wise semantic segmentation in real-time
+
 
 REFERENCES:
 https://www.superannotate.com/blog/guide-to-semantic-segmentation
 https://pyimagesearch.com/2018/09/03/semantic-segmentation-with-opencv-and-deep-learning/
-
+https://towardsdatascience.com/enet-a-deep-neural-architecture-for-real-time-semantic-segmentation-2baa59cf97e9
         
