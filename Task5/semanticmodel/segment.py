@@ -94,3 +94,5 @@ cv2.imshow("Legend", legend)
 cv2.imshow("Input", image)
 cv2.imshow("Output", output)
 cv2.waitKey(0)
+
+
