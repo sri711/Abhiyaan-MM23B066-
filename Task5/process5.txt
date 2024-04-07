@@ -1,10 +1,50 @@
 PROCESS 
--We are using the ENet deep learning architecture
+IMAGE
+-We are using the ENet deep learning architecture to build our model as it is the most efficient architecture
 -imutils is a openCV package with series of convenience functions to make basic image processing functions such as 
  translation, rotation, resizing, skeletonization, displaying Matplotlib images, sorting contours, detecting edges, 
- and much more easier with OpenCV
+ and much more easier with OpenCV, we install and import it
 -We are using the cityscape dataset which has aldready been pocessed by annotations and labels
--this model has about 20 classes of objects found in an urbans etting
+-this model has about 20 classes of objects found in an urban setting
+-we create dierectories
+    -enet-cityscapes/ : Contains our pre-trained deep learning model, classes list, and color labels to correspond with the classes
+    -images :contains images to test our model
+    segment.py :runs the model on a picture and outputs the processed image
+-import necessary packages
+-we define command line arguments using the argparse package
+-we define 5 classes
+    --model : The path to our deep learning semantic segmentation model.
+    --classes : The path to a text file containing class labels.
+    --image : Our input image file path.
+    --colors : Optional path to a colors text file. If no file is specified, random colors will be assigned to each class.
+    --width : Optional desired image width. By default the value is 500 pixels.
+-Next we load the classes our segmenter can identify which is aldready supplied in a txt file into memory the path to this file
+will be given by the user thro the command line argument --classes
+-similarly we load the colours for each class, but if it is not give, we randomly generate and assign
+-next we generate a legend so as to asociate the colour with the class
+-now we load our model and image
+-we convert the image to a blob by resizing it to 1024x512 and dividing the pixel values by 255
+-now we set the input aand do a forward pass into the model
+-extract volume dimension information from our output
+-we define classmap for each pixel now and use the argmax function to find the class with the highest probability
+-we find the corresponding colours using the given text file and create a mask
+-we resize the mask and overlay it on the original image
+we are done building our model
+to run it we go to terminal and access the file first and give the required command line
+
+Command line
+python segment.py -m enet-cityscapes/enet-model.net -c enet-cityscapes/enet-classes.txt -i images/example_05.jpeg
+
+VIDEO
+similar to the above steps we creae a video sematic segmentation model
+differences:
+-we load the model and then we open a video stream pointer to input video file on and initialize our video writer object
+-we find the total no of frfames to calculate runtime
+-we use a while true statement to loop over frames(loop broken when no more frames are found)
+-after getting the frames with the mawsk applied on them, we write them back into a video
+
+Command line
+python segment_video.py -m enet-cityscapes/enet-model.net -c enet-cityscapes/enet-classes.txt -v videos/massachusetts.mp4 -o output/massachusetts_output.avi
 
 LEARNING
 image segmentation is of 3types 
@@ -23,14 +63,19 @@ to build a model we use convolutional neural networks
             -max pooling
             -average pooling
     -after processing we will need to unpool
-        types of unpooling-
-            -Bed of nails unpooling
-            -Nearest neighbor unpooling
-            -"Max" unpooling
     -we model the CNN using the cross entropy loss function
 
 ENet (Efficient Neural Network) gives the ability to perform pixel-wise semantic segmentation in real-time
-
+ENet is basically a semantic segmentation architecture which utilises a compact encoder-decoder architecture
+An encoder is a network that takes input, and outputs a feature map. These feature vector has the features. 
+The decoder is a usually the same network structure as encoder but in opposite orientation that takes the feature vector 
+from the encoder, and gives the intended output.
+IN Enet,
+    -Max pooling is used
+    -about 13 covolutional layers are present
+    -batch normalization and ReLU is used
+Command line arguments are flags given to a program/script at runtime.
+They contain additional information for our program so that it can execute.
 
 REFERENCES:
 https://www.superannotate.com/blog/guide-to-semantic-segmentation
