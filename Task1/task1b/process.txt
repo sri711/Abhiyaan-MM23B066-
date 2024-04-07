@@ -1,1 +1,5 @@
-
+Process
+1)source ros2 environment
+2)inistall turtlesim
+3)innstall rqt
+4)
