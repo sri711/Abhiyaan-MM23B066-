@@ -1,0 +1,35 @@
+PROCESS 
+-We are using the ENet deep learning architecture
+-imutils is a openCV package with series of convenience functions to make basic image processing functions such as 
+ translation, rotation, resizing, skeletonization, displaying Matplotlib images, sorting contours, detecting edges, 
+ and much more easier with OpenCV
+ 
+LEARNING
+image segmentation is of 3types 
+-Semantic segmentation
+-Instance segmentation
+-Panoptic segmentation
+Semantic segmentation is a deep learning algorithm that associates a label or category with every pixel in an image
+Instance segmentation is same as semantic but it also distinguishes between different objects of the same class
+panoptic is a mix of both
+to build a model we use convolutional neural networks
+ The approach to build asemantic segmentation model is 
+    -build a fully convolutional network which makes predictions for all the pixels 
+    -to increase efficiency as we are working with a lot of pixels we introduce pooling layers (downsampling)
+        -The basic goal of pooling is to maintain the most relevant information This may avoid overfitting and increase efficiency
+        -types of poolings:
+            -max pooling
+            -average pooling
+    -after processing we will need to unpool
+        types of unpooling-
+            -Bed of nails unpooling
+            -Nearest neighbor unpooling
+            -"Max" unpooling
+    -we model the CNN using the cross entropy loss function
+
+
+REFERENCES:
+https://www.superannotate.com/blog/guide-to-semantic-segmentation
+https://pyimagesearch.com/2018/09/03/semantic-segmentation-with-opencv-and-deep-learning/
+
+        
