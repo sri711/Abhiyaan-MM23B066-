@@ -4,9 +4,12 @@ PROCESS:
 2)had to unzip given file for being able to share
 3)given folder in itself is a workspace, no need to mount it on a workspace again and buil it
 4)shared file from windows to vbox
-5)opened it using terminal and ran the commands given in the app
-6)subscribing to the given topic
-............
+5)opened it using terminal and created a node
+6)subscribing to the given topic /start_here
+7)subsctibing to subsequent topics form the same node by writing a publisher subscriber script using python
+8)this script through a single node subscribes to multiple topics and prints the message in the terminal
+9)also had to configure the setup.py file by adding entry points 
+....................................................................................................................................
 RIDDLE1-I heard: "Knock, Knock. Who is there? Tank. Tank who?"
 ANSWER - /you_are_welcome
 
@@ -23,7 +26,7 @@ RIDDLE5-"Why did the robot go to the shoe shop?"
 ANSWER - /Rebooted
 
 Congratulations! You have successfully completed the challenge. Hope you enjoyed it.
-
+....................................................................................................................................
 
 All the topics -
 /you_are_welcome
@@ -85,8 +88,7 @@ ACTIONS
     -ros2 action info command
     -ros2 interface show command
     -ros2 action send_goal command-value in YAML -human-readable data serialization language
-RECORDING AN DPLAYING BACK DATA 
-COLCON
+COLCON BUILD
 RCLYPY - ros client library for python
 
 
