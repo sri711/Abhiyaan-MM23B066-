@@ -1,0 +1,23 @@
+PROCESS
+-we create object_movement.py
+-we imprt necessary packages
+-we construct the argument using the parse function from the argparse library
+-we add arguments for the video file and the buffer
+-this buffer is a cap on the maximum size of the deque which is basically the history of the location of the point (x,y coordinates)
+-the buffer is by default 32 frames
+-we use the HSV (hue,saturation and value) coordinates of the colour to be identifies
+-we define the upper and lower colour bound of
+
+
+command line
+python object_movement.py -v single_ball.mov
+
+LEARNING
+-we import deques from collections, Deques are a generalization of stacks and queues,
+ it is used to efficiently store the points the object has been detected and tracked at
+-HSV-Hue Saturation and value
+
+
+
+refernece:
+https://pyimagesearch.com/2015/09/21/opencv-track-object-movement/
