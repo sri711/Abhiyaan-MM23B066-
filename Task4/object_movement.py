@@ -14,22 +14,24 @@ ap.add_argument("-b", "--buffer", type=int, default=32,
 	help="max buffer size")
 args = vars(ap.parse_args())
 
-# define the lower and upper boundaries of the "green"
+# define the lower and upper boundaries for the given colour
 # ball in the HSV color space
-greenLower = (90, 50, 50)
-greenUpper = (130, 255, 255)
+Lower = (29, 86, 6)
+Upper = (64, 255, 255)
+"""
+(blue-single)
+Lower = (90, 50, 50)
+Upper = (130, 255, 255)
+"""
 # initialize the list of tracked points, the frame counter,
 # and the coordinate deltas
 pts = deque(maxlen=args["buffer"])
 counter = 0
 (dX, dY) = (0, 0)
+(d2X, d2Y) = (0, 0)
 direction = ""
-# if a video path was not supplied, grab the reference
-# to the webcam
-if not args.get("video", False):
-	vs = VideoStream(src=0).start()
-# otherwise, grab a reference to the video file
-else:
+
+if True :
 	vs = cv2.VideoCapture(args["video"])
 # allow the camera or video file to warm up
 time.sleep(2.0)
@@ -49,10 +51,10 @@ while True:
 	frame = imutils.resize(frame, width=600)
 	blurred = cv2.GaussianBlur(frame, (11, 11), 0)
 	hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
-	# construct a mask for the color "green", then perform
+	# construct a mask for the color given, then perform
 	# a series of dilations and erosions to remove any small
 	# blobs left in the mask
-	mask = cv2.inRange(hsv, greenLower, greenUpper)
+	mask = cv2.inRange(hsv, Lower, Upper)
 	mask = cv2.erode(mask, None, iterations=2)
 	mask = cv2.dilate(mask, None, iterations=2)
 	# find contours in the mask and initialize the current

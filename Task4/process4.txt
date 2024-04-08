@@ -6,8 +6,17 @@ PROCESS
 -this buffer is a cap on the maximum size of the deque which is basically the history of the location of the point (x,y coordinates)
 -the buffer is by default 32 frames
 -we use the HSV (hue,saturation and value) coordinates of the colour to be identifies
--we define the upper and lower colour bound of
+-we define the upper and lower colour bound of the blue ball
+-next we initialise pts to be a deque and initialise a few other variables
+-now we grab a pointer vs to the video file given
+-this pointer now allows us to create a loop and process the whole video frame by frame 
+-we get the frame by "frame = frame[1] if args.get("video", False) else frame" from the video file
+-we discard frame[0] as it contains metadata
+-we break the loop when we have processed the entire video file
 
+
+
+todo:-accln,multiple,path
 
 command line
 python object_movement.py -v single_ball.mov
@@ -15,7 +24,9 @@ python object_movement.py -v single_ball.mov
 LEARNING
 -we import deques from collections, Deques are a generalization of stacks and queues,
  it is used to efficiently store the points the object has been detected and tracked at
--HSV-Hue Saturation and value
+-HSV-Hue Saturation and value is used to deine the upper and lower bound for the volour
+as HSV is used to separate image luminance from color information which cant be done in RGB values
+
 
 
 
