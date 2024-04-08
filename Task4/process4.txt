@@ -1,18 +1,35 @@
 PROCESS
+
+1)IMPORTING PACKAGES AND INITIALIZING VARIABLES
 -we create object_movement.py
 -we imprt necessary packages
 -we construct the argument using the parse function from the argparse library
 -we add arguments for the video file and the buffer
 -this buffer is a cap on the maximum size of the deque which is basically the history of the location of the point (x,y coordinates)
 -the buffer is by default 32 frames
--we use the HSV (hue,saturation and value) coordinates of the colour to be identifies
+-we use the HSV (hue,saturation and value) coordinates of the colour to be identified
 -we define the upper and lower colour bound of the blue ball
 -next we initialise pts to be a deque and initialise a few other variables
+
+2)PROCESSING THE FRAMES OF THE VIDEO
 -now we grab a pointer vs to the video file given
 -this pointer now allows us to create a loop and process the whole video frame by frame 
 -we get the frame by "frame = frame[1] if args.get("video", False) else frame" from the video file
 -we discard frame[0] as it contains metadata
 -we break the loop when we have processed the entire video file
+-we resize the frame to a width of 600 pixels, standardising the size of the frame
+-next we use gaussian blur to reduce noise and smoothen the image 
+-the (11,11) indicates the kernel size for gaaussian blur
+-and convert the frame to the HSV color space
+-we now create a binary mask that identifies the colour of the ball using the inrange function
+-we run a series of erosions and dilations to remove inconsistencies in the mask
+-now we use the findcontours function to find the outline of objects in the binary mask
+-proceeding only if atleast  one contour is identified
+-cv2.RETR_EXTERNAL retrieves only the outermost contour
+-we initialize centre to none as of now but will later give it the pos of centroid
+-cnts will now have the list of identified contours
+
+3)
 
 
 
@@ -24,8 +41,19 @@ python object_movement.py -v single_ball.mov
 LEARNING
 -we import deques from collections, Deques are a generalization of stacks and queues,
  it is used to efficiently store the points the object has been detected and tracked at
--HSV-Hue Saturation and value is used to deine the upper and lower bound for the volour
+-HSV
+Hue Saturation and value is used to deine the upper and lower bound for the volour
 as HSV is used to separate image luminance from color information which cant be done in RGB values
+GAUSSIAN BLURRING
+-Gaussian blurring is a mathematical function that softens an image by smoothing out uneven pixel value
+-basically convolving using a gaussian surface
+- a kernel refers to a small matrix that is used to perform the blurring operation on an image. 
+The kernel specifies the weights that determine how much influence each pixel in the neighborhood of a target pixel has
+DILATION
+-consists of convolving an image \(A\) with some kernel
+-the kernel scans and computes the maximal pixel value 
+EROSION 
+- It computes a local minimum over the area of given kernel.i.e, minimal pixel value
 
 
 

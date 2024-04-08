@@ -16,10 +16,10 @@ args = vars(ap.parse_args())
 
 # define the lower and upper boundaries for the given colour
 # ball in the HSV color space
+
 Lower = (29, 86, 6)
 Upper = (64, 255, 255)
 """
-(blue-single)
 Lower = (90, 50, 50)
 Upper = (130, 255, 255)
 """
@@ -29,6 +29,7 @@ pts = deque(maxlen=args["buffer"])
 counter = 0
 (dX, dY) = (0, 0)
 (d2X, d2Y) = (0, 0)
+(dXnew, dYnew) = (0, 0)
 direction = ""
 
 if True :
@@ -81,7 +82,8 @@ while True:
 				(0, 255, 255), 2)
 			cv2.circle(frame, center, 5, (0, 0, 255), -1)
 			pts.appendleft(center)
-			
+
+
 	# loop over the set of tracked points
 	for i in np.arange(1, len(pts)):
 		# if either of the tracked points are None, ignore
@@ -94,32 +96,27 @@ while True:
 			# compute the difference between the x and y
 			# coordinates and re-initialize the direction
 			# text variables
+			#buffer frame is 32
 			dX = pts[-10][0] - pts[i][0]
 			dY = pts[-10][1] - pts[i][1]
-			(dirX, dirY) = ("", "")
-			# ensure there is significant movement in the
-			# x-direction
-			if np.abs(dX) > 20:
-				dirX = "East" if np.sign(dX) == 1 else "West"
-			# ensure there is significant movement in the
-			# y-direction
-			if np.abs(dY) > 20:
-				dirY = "North" if np.sign(dY) == 1 else "South"
-			# handle when both directions are non-empty
-			if dirX != "" and dirY != "":
-				direction = "{}-{}".format(dirY, dirX)
-			# otherwise, only one direction is non-empty
-			else:
-				direction = dirX if dirX != "" else dirY
+			dXnew = pts[-5][0] - pts[i][0]
+			dYnew = pts[-5][1] - pts[i][1]
+			d2X = dX - dXnew
+			d2Y = dY - dYnew
+			
+			
 		# otherwise, compute the thickness of the line and
 		# draw the connecting lines
 		thickness = int(np.sqrt(args["buffer"] / float(i + 1)) * 2.5)
 		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
 	# show the movement deltas and the direction of movement on
 	# the frame
-	cv2.putText(frame, direction, (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
-		0.65, (0, 0, 255), 3)
-	cv2.putText(frame, "dx: {}, dy: {}".format(dX, dY),
+#	cv2.putText(frame, direction, (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
+#		0.65, (0, 0, 255), 3)
+	cv2.putText(frame, "d2x: {}, d2y: {}".format(d2X, d2Y),
+		(10, frame.shape[0] - 30), cv2.FONT_HERSHEY_SIMPLEX,
+		0.35, (0, 0, 255), 1)
+	cv2.putText(frame, "dx1: {}, dy1: {}".format(dX, dY),
 		(10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX,
 		0.35, (0, 0, 255), 1)
 	# show the frame to our screen and increment the frame counter
@@ -137,3 +134,4 @@ else:
 	vs.release()
 # close all windows
 cv2.destroyAllWindows()
+

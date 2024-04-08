@@ -1,5 +1,7 @@
 PROCESS 
 IMAGE
+
+1)SETTING UP
 -We are using the ENet deep learning architecture to build our model as it is the most efficient architecture
 -imutils is a openCV package with series of convenience functions to make basic image processing functions such as 
  translation, rotation, resizing, skeletonization, displaying Matplotlib images, sorting contours, detecting edges, 
@@ -18,11 +20,15 @@ IMAGE
     --image : Our input image file path.
     --colors : Optional path to a colors text file. If no file is specified, random colors will be assigned to each class.
     --width : Optional desired image width. By default the value is 500 pixels.
+
+2)LOAD NECESSARY FILES
 -Next we load the classes our segmenter can identify which is aldready supplied in a txt file into memory the path to this file
 will be given by the user thro the command line argument --classes
 -similarly we load the colours for each class, but if it is not give, we randomly generate and assign
 -next we generate a legend so as to asociate the colour with the class
 -now we load our model and image
+
+3)PROCESSING OUR IMAGE
 -we convert the image to a blob by resizing it to 1024x512 and dividing the pixel values by 255
 -now we set the input aand do a forward pass into the model
 -extract volume dimension information from our output
@@ -34,6 +40,7 @@ to run it we go to terminal and access the file first and give the required comm
 
 Command line
 python segment.py -m enet-cityscapes/enet-model.net -c enet-cityscapes/enet-classes.txt -i images/example_05.jpeg
+DATASET:- https://www.cityscapes-dataset.com/
 
 VIDEO
 similar to the above steps we creae a video sematic segmentation model
