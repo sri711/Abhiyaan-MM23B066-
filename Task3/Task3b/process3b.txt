@@ -1,0 +1,23 @@
+Process
+
+1)import necessary modules
+-user define functions for
+    -Function for distance btw circles
+    -Function to generate random circles in a mask
+    -Function to check if distance between points is less than 40(we have defined the minimum closest distance to be 40)
+    (and the circles to be of radius 10) this fn if dist is less than 40 returns false
+
+2)defining initial and final points
+-we define a mask of size 500x500 and draw 10 random circle in it such that the circles always have distance between them > 40
+-next define bhai in the field raandomly with a raadius 20
+-to find final points we ddefine a circle of radius 70 around bhai and mark 10 eqully spaced points on the circle
+-create another mask,mask_final showing the final position of the fans around bhai
+-next we find the shortest final ppoint for each initial point adn draw the respective line indicating the optimal path
+-we have to keep in mind to keep the final point distinct for each initial point so we iteratively delete the closest point
+-we create a nested list, sd consisting of the initial and corresponding final poiints
+-we create a mask, masksecfin with the lines
+-we create a giant_mask and aadd all the 3 masks till now to show the initial point, final point and path using bitwise or
+
+3)now we define the intermediate points btw initial and final points
+-
+
