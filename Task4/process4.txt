@@ -10,7 +10,7 @@ PROCESS
 -we use the HSV (hue,saturation and value) coordinates of the colour to be identified
 -we define the upper and lower colour bound of the blue ball
 -next we initialise pts to be a deque and initialise a few other variables
-
+----------------------------------------------------------------------------------------------------------------------------------------
 2)PROCESSING THE FRAMES OF THE VIDEO
 -now we grab a pointer vs to the video file given
 -this pointer now allows us to create a loop and process the whole video frame by frame 
@@ -28,15 +28,36 @@ PROCESS
 -cv2.RETR_EXTERNAL retrieves only the outermost contour
 -we initialize centre to none as of now but will later give it the pos of centroid
 -cnts will now have the list of identified contours
-
-3)
-
-
-
-todo:-accln,multiple,path
-
+---------------------------------------------------------------------------------------------------------------------------------------
+3)WORKING ON THE CONTOUR 
+-for every contour identified,we draw a minmum enclosing circle and get the coordinates and raadius of the circle/centroid
+-we also find the moment of the particle using the function and from it find the coordinates of the center
+-we draw the circle and the centroid and append the position to the pts deque
+-now we iterate over the pts deque (we have appended it to the left which is not usual)
+-we also have a buffer of 32 frames so we caalculate the dx,dy and d2x,d2y all wrt current  frame i and a previos frame of index -10
+-we use a frame counter to make sure we always have 10 frames before calculating
+-also we dont calculate velocity dierectly as we dont have time but instead we use no of frames,the dx,dy is per 10 frames and 
+d2x,d2y is wrt 5 frames
+-we finally print these in the window
+- we also draw the tracked points so as to create a tail like effect
+-finally we close all windows if the key q is pressed 
+----------------------------------------------------------------------------------------------------------------------------------------
 command line
 python object_movement.py -v single_ball.mov
+python object_movement.py -v multiple_balls.mov
+
+APPROACH FOR MULTIPLE BALLS
+-I wasnt able to properly solve the multiple balls video as i got lots of errors
+my apprroach was
+APPROACH 1
+    -iterate through all contours found in the mask
+    -compute the centroid for each contour and get the position i.e centre from the moment function
+    -i tried to creeate a dictionary with contour as the key and the pts deque as the value so that we can calculate position,velocity
+    and acceleration from the deque seperately for each contour
+    - but the error was contour being a tuple could not be the key
+APPROACH 2
+    -we use the enumerator() on the list of contours
+but in both the approaches lots of error and bugs were found
 
 LEARNING
 -we import deques from collections, Deques are a generalization of stacks and queues,

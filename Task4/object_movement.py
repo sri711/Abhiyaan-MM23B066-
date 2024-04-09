@@ -16,13 +16,15 @@ args = vars(ap.parse_args())
 
 # define the lower and upper boundaries for the given colour
 # ball in the HSV color space
-
+"""
+#multiple_balls
 Lower = (29, 86, 6)
 Upper = (64, 255, 255)
 """
+#single_ball
 Lower = (90, 50, 50)
 Upper = (130, 255, 255)
-"""
+
 # initialize the list of tracked points, the frame counter,
 # and the coordinate deltas
 pts = deque(maxlen=args["buffer"])
@@ -67,21 +69,20 @@ while True:
 	
     	# only proceed if at least one contour was found
 	if len(cnts) > 0:
-		# find the largest contour in the mask, then use
-		# it to compute the minimum enclosing circle and
-		# centroid
-		c = max(cnts, key=cv2.contourArea)
-		((x, y), radius) = cv2.minEnclosingCircle(c)
-		M = cv2.moments(c)
-		center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
-		# only proceed if the radius meets a minimum size
-		if radius > 10:
-			# draw the circle and centroid on the frame,
-			# then update the list of tracked points
-			cv2.circle(frame, (int(x), int(y)), int(radius),
-				(0, 255, 255), 2)
-			cv2.circle(frame, center, 5, (0, 0, 255), -1)
-			pts.appendleft(center)
+	
+		for c in cnts:	
+			((x, y), radius) = cv2.minEnclosingCircle(c)
+			M = cv2.moments(c)
+			center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
+			# only proceed if the radius meets a minimum size
+			if radius > 10:
+				# draw the circle and centroid on the frame,
+				# then update the list of tracked points
+				cv2.circle(frame, (int(x), int(y)), int(radius),
+					(0, 255, 255), 2)
+				cv2.circle(frame, center, 5, (0, 0, 255), -1)
+				pts.appendleft(center)
+			
 
 
 	# loop over the set of tracked points
@@ -107,12 +108,8 @@ while True:
 			
 		# otherwise, compute the thickness of the line and
 		# draw the connecting lines
-		thickness = int(np.sqrt(args["buffer"] / float(i + 1)) * 2.5)
+		thickness = 2
 		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
-	# show the movement deltas and the direction of movement on
-	# the frame
-#	cv2.putText(frame, direction, (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
-#		0.65, (0, 0, 255), 3)
 	cv2.putText(frame, "d2x: {}, d2y: {}".format(d2X, d2Y),
 		(10, frame.shape[0] - 30), cv2.FONT_HERSHEY_SIMPLEX,
 		0.35, (0, 0, 255), 1)
@@ -126,12 +123,6 @@ while True:
 	# if the 'q' key is pressed, stop the loop
 	if key == ord("q"):
 		break
-# if we are not using a video file, stop the camera video stream
-if not args.get("video", False):
-	vs.stop()
-# otherwise, release the camera
-else:
-	vs.release()
+vs.release()
 # close all windows
 cv2.destroyAllWindows()
-
