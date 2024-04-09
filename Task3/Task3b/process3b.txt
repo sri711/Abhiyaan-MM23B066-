@@ -19,5 +19,17 @@ Process
 -we create a giant_mask and aadd all the 3 masks till now to show the initial point, final point and path using bitwise or
 
 3)now we define the intermediate points btw initial and final points
--
+-we interpolate and find the points between initial and final points
+-we define them= points to be equidistant from one another so that the speed of the robots are constant throughout
+-we create a videofile showing the motion of the points using masks
+-we print the sd list whiich has initial,final coords for the robots
+-we also print interpol_history which basically has the coord for all the circle's intial,final and also interpolated points
+
+WORKING ON:
+-we have to modify the code such that for any intermediate position, the distance btw the robots must not be less than 40
+-approach 
+    -we calculate the dist btw circles using the data from the interpol_history nested list
+    -if any dist<40 we must alter the coordinate such that it is euidistant from the previous coordinate 
+    but also satisfies the min dist btw robots
+    -we mustmake sure it is equidistantfrom the previous coord as we dont want to alter the speed of the robots
 

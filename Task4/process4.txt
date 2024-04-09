@@ -41,6 +41,7 @@ d2x,d2y is wrt 5 frames
 -we finally print these in the window
 - we also draw the tracked points so as to create a tail like effect
 -finally we close all windows if the key q is pressed 
+- we have also attaatched an arrow which shows the velocity vector of the ball
 ----------------------------------------------------------------------------------------------------------------------------------------
 command line
 python object_movement.py -v single_ball.mov

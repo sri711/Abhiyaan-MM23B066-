@@ -173,10 +173,9 @@ video_writer = cv2.VideoWriter(output_video_path, fourcc, fps, frame_size)
 
 for i in range(num_steps + 1):
     merged_frame = np.zeros(frame_size, dtype=np.uint8)
-    merged_framenew = cv2.bitwise_and(merged_frame, giant_mask)
     for intermask in step_by_step_masks:
-        merged_framenew = cv2.bitwise_or(merged_framenew, intermask[i])
-    video_writer.write(cv2.cvtColor(merged_framenew, cv2.COLOR_GRAY2BGR))
+        merged_frame = cv2.bitwise_or(merged_frame, intermask[i])
+    video_writer.write(cv2.cvtColor(merged_frame, cv2.COLOR_GRAY2BGR))
 video_writer.release()
 
 

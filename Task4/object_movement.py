@@ -16,7 +16,7 @@ args = vars(ap.parse_args())
 
 # define the lower and upper boundaries for the given colour
 # ball in the HSV color space
-"""
+
 #multiple_balls
 Lower = (29, 86, 6)
 Upper = (64, 255, 255)
@@ -24,7 +24,7 @@ Upper = (64, 255, 255)
 #single_ball
 Lower = (90, 50, 50)
 Upper = (130, 255, 255)
-
+"""
 # initialize the list of tracked points, the frame counter,
 # and the coordinate deltas
 pts = deque(maxlen=args["buffer"])
@@ -105,11 +105,20 @@ while True:
 			d2X = dX - dXnew
 			d2Y = dY - dYnew
 			
+
 			
 		# otherwise, compute the thickness of the line and
 		# draw the connecting lines
-		thickness = 2
-		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
+ 	
+#		thickness = 2
+#		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
+
+		if center is not None:
+			arrow_length = 3
+			arrow_endpoint = (center[0] - arrow_length * dX, center[1] - arrow_length * dY)
+			cv2.arrowedLine(frame, center, arrow_endpoint, (0, 255, 0), 2)
+        	
+		
 	cv2.putText(frame, "d2x: {}, d2y: {}".format(d2X, d2Y),
 		(10, frame.shape[0] - 30), cv2.FONT_HERSHEY_SIMPLEX,
 		0.35, (0, 0, 255), 1)
