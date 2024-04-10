@@ -42,8 +42,8 @@ while True:
         break
 print (pts)
 
-#bhai comes into the field :-)))
-bhaix,bhaiy=(random.randint(20,width-20),random.randint(20,height-20))
+
+bhaix,bhaiy=(random.randint(20,width-20),random.randint(20,height-20))   #bhai comes into the field XD
 cv2.circle(mask,(bhaix,bhaiy),20,125,-1)
 # Display the generated mask
 
@@ -74,7 +74,7 @@ mask_final = np.zeros((500, 500), dtype=np.uint8)
 colorc = 255  # White color
 thicknessc = 2  # Thickness of the circle's outline
 cv2.circle(mask_final,(bhaix,bhaiy),20,125,-1) #Bhai
-cv2.circle(mask_final,(bhaix,bhaiy), 70, colorc, thicknessc) #Bhai"s circle of bodygaurds :-))
+cv2.circle(mask_final,(bhaix,bhaiy), 70, colorc, thicknessc)   #Bhai"s circle of bodygaurds : )
 #new pos of fans
 for i in range(10):
         center_x = finpts[i][0]
@@ -140,7 +140,7 @@ for i in range(10):
     ip=sd[i][0]
     fp=sd[i][1]
     interpol=interpolate_points(ip, fp, 10)
-    interpol_history.append(interpol)
+    interpol_history.append(interpol)                #interpol_history sounds v cool 
     intermask=[]
     for pt in interpol:
         mask = create_mask((500, 500), pt, radius)
