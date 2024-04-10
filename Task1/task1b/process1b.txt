@@ -1,5 +1,10 @@
 Process
-1)source ros2 environment
-2)inistall turtlesim
-3)innstall rqt
-4)
+-we have created a workspace named tsk_ws
+-we created a package named new_pckg
+-we wrote 2 nodes in it namely turtle_control and nodes2
+-we had to create the python files for these respective nodes and then add the path for them in the setup.py files
+-next we start the turtle simulator and run both the nodes to play a game of ping ppong
+
+EXPLANATION
+TURTLE CONTROL 
+    -
