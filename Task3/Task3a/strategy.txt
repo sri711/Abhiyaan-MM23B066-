@@ -34,3 +34,6 @@ DEFENCE
 -if not each bot must mark the nearest bot 
 -after marking we must try and steal the ball 
 -if we are succesfull, we will switch strategy to offence
+
+FLOWCHART:-
+https://lucid.app/lucidchart/307a1bf4-87b0-483d-abcf-b1e999f239f5/edit?viewport_loc=-465%2C-615%2C4192%2C1824%2C0_0&invitationId=inv_3e520842-43e9-4d0b-8877-df7dafaaf7ec
