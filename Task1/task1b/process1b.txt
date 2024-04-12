@@ -1,10 +1,65 @@
-Process
+PROCESS 
 -we have created a workspace named tsk_ws
 -we created a package named new_pckg
 -we wrote 2 nodes in it namely turtle_control and nodes2
+-the first turtle acts as the ball and the second turtle as the bat
 -we had to create the python files for these respective nodes and then add the path for them in the setup.py files
 -next we start the turtle simulator and run both the nodes to play a game of ping ppong
-rclpy vs rospy  
+
+rospy for ROS1 and rclypy for ROS2, enables python to interface with ROS topics  services and parameters
+
 EXPLANATION
-TURTLE CONTROL 
-    -
+
+NODE1
+-we create the node, turtle_control which basically creates the turtle that acts as the ball,
+-our aim is to control a turtle by making it move in straight lines,
+ and make it bounce off the walls and other turtles it collides into
+CODE:-
+    -import
+        -rclpy for python interface
+        -node to creat nodes
+        -twist to send velocity commands for the turtle
+        -pose to get the position and orientation informations
+        -and math
+    -TurtleControl class
+        -it is a python class that representss the ROS node
+        -a class is basiically a blueprint for creating objects with data 
+        -TurtleControl is a specialized type of ROS node and inherits all the functionality provided by the Node class
+        -the __init__ method is the constructor of the class
+        -it sets up necessary publishers and subsribers
+        -set_random_target_pose is a method to set a raandom position while initialising (did not work)
+        -pose_callback is a method that updates the current postiton of the turtle
+        -control_turtle has the entire logic
+            -first we make sure we have the positional information
+            -next we initialize the twist message
+            -and send twist messagesto make the turtle move in a st line
+            -next to bounce off the walls we check the position and if it is below a threshold,
+                -we revverse the velocity vector and
+                -reverse the dierection by pi and publish it
+        -we also check for turtle2 positon and sitch dierections if distance btw them is less than 0.5
+
+NODE2 
+- this is the node for the turtle that acts as the bat
+-it is constrained in the y=2 line and can only change the x coordinate
+-we set the x coordinate for turtle 2 to mimic the x coord of turtle 1
+ CODE:-
+    -we do the necessary imorts but also add the spawn feture so a to spawn the turtle2
+    -we define another class, TurtleControl and define the necessary attributes by initializing them
+    -we also define necessary callback methods in the class
+    -we define turtle 2 to move using twist function such that its x coord is same as the x coord of turtle1 at all times
+    -this enables us to match the intersection coordinates of turtle1's trajectory and the y=2 line
+
+LEARNINGS  
+-rospy for ROS1 and rclypy for ROS2, enables python to interface with ROS topics  services and parameters
+OOP
+-class  
+    - class is a blueprint or template for creating objects (instances) in programming
+    -It defines the attributes (data) and methods (functions) that objects of the class will have
+
+-Methods
+    -Methods are functions defined within a class
+    -Methods can interact with the object's attributes (data) and modify their state
+
+self is a convention used to represent the instance of a class within its methods.
+
+-the shebang line specifies the interpreter ot be used
