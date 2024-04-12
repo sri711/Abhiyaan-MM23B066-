@@ -4,7 +4,7 @@ Process
 -we wrote 2 nodes in it namely turtle_control and nodes2
 -we had to create the python files for these respective nodes and then add the path for them in the setup.py files
 -next we start the turtle simulator and run both the nodes to play a game of ping ppong
-
+rclpy vs rospy  
 EXPLANATION
 TURTLE CONTROL 
     -
