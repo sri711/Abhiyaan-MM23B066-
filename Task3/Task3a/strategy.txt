@@ -1,0 +1,36 @@
+El Psy Congroo - the mind is indeed expected to be congruous in swarm robotics :)
+
+multi robot systems-A system consisted of multiple robots which can cooperate and communicate with each other to accomplish certain tasks
+
+swarm robotics- it is basically the integration of swarm intelligence (decentralizeed, self organized) with robotics
+(just like the villain's robots in big hero 6)
+this includes various fields such as
+    -drones
+    -military applications
+    -nanorobotics\ microbotics
+    -micro air vehicles
+
+STRATEGY:-
+let us name our players A,B and C
+at any point in the gaame we have 2 options
+    -attack
+    -defence
+we can choose either one of this based on the opponent's position
+for both the options wwe will allocate on of our players to be in our side of the pitch at all times (assuming C)
+c will be the flying goalie (acting as the goalkeeper and the defender) at all times
+
+OFFENCE
+-to play offence, we must  have possession of the ball
+-in offence, our main target is to score goals,
+-so our first task should be to take possession of the ball first
+-after that our strategy must be to move towards the goal avoiding the opponent;s defenders
+-our options would be to dribble or pass
+-when we the dribbler(B) is blocked by a defender we have 2 options shoot/pass
+-for both cases A must make itself free by not being marked down by the defender in order to receive the pass or collect the rebound
+ 
+DEFENCE 
+-if the opponent has the ball we mark them and try to steal the ball while not letting them move forward and by marking them
+-if either of the opponent bots are inside the penalty area, both our bots (A and B) must mark the opponent bot with the ball
+-if not each bot must mark the nearest bot 
+-after marking we must try and steal the ball 
+-if we are succesfull, we will switch strategy to offence
