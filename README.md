@@ -23,7 +23,13 @@ Current PoRs:
         
 Why I want to be a part of Team Abhiyaan:
 
-        I am passionately intrested in the fields of Robotics and Artificial Intelligence and am constantly looking to explore the fileds more deeply as these fields have enormous potentials.The idea of autonomous technology i.e technology that can operate on its own without human intervention is something i am veryy fascinated of since my childhood exposure to sci fi.AI/ML is a field that genuinely captivates me as it has the potential to match and also surpass human levels of intelligence, I see this as the way humans can play god by creating their own version of autonomous robots and it really intrigues me.I really look forward to getting hands on experience in building such autonomous models .I thus find Abhiyaan to be the right fit as they allign very deeply with my intrests and career aspirations. The new competition, robocup that Abhiyaan will be undertaking this year also is very intresting because of the project being related to the fields of swarm robotics and autonomous robots which adds to the countless reasons why Abhiyaan appeals the most to me.
+        I am passionately intrested in the fields of Robotics and Artificial Intelligence and am constantly looking to explore the fileds more deeply as these 
+        fields have enormous potentials.The idea of autonomous technology i.e technology that can operate on its own without human intervention is something i am 
+        veryy fascinated of since my childhood exposure to sci fi.AI/ML is a field that genuinely captivates me as it has the potential to match and also surpass 
+        human levels of intelligence, I see this as the way humans can play god by creating their own version of autonomous robots and it really intrigues me.
+        I really look forward to getting hands on experience in building such autonomous models .I thus find Abhiyaan to be the right fit as they allign very 
+        deeply with my intrests and career aspirations. The new competition, robocup that Abhiyaan will be undertaking this year also is very intresting because of
+        the project being related to the fields of swarm robotics and autonomous robots which adds to the countless reasons why Abhiyaan appeals the most to me.
 
                                                                                                                                                    
 Relevant Courses:
