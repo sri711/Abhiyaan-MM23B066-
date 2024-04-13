@@ -55,13 +55,23 @@ Online
 
 
 Other Relevant Things:
+
       -I am intrested in all things related to computer science (hope to become a software whizz)
+      
       -I find the abhiyaan t shirt to be very cool 
                                                                                                                                                
- Application info:-                                                                                                                                              
+ Application info:-                   
+ 
+ 
 All questions attempted have been put in corresponding folders
+
 each of the questions have a process text file explaining the process of solving the question and the logic used in the code
+
 another folder containing the screenshots of the relevant output will be there
+
 a folder called the packages contains all the ros packages used throughout the application
+
 this is done even tho the relevant python scripts have been added in the respective question's folders
+
 If any further clarifications are needed, ill be happy to explain them in the interview  :)
+
