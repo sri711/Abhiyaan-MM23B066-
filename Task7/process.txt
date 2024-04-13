@@ -1,0 +1,20 @@
+PROCESS
+-we download and unzip the given folder,
+-we have created a dierectory and built a package called pygm
+-in pygm we place the racecar.py and obstacle2.py files
+-we also place the music and the images file ini the home file of the dierectory
+
+now we need to change the racecar.py as it aldredy is generating the obstacles through the random function
+we need to change it by making it a node and subscribing it to the /obstacle rostopic instead which generates the obstacles
+
+-obstacleros3.py is basically a node that publishes whatever message the topic, /obstacle gives
+-the publsih_obstacle method generates random values for the x coordinate 
+-Constructs a message string containing the obstacle information in the format 'x,y,width,height' and publishes it into the topic
+
+now, racecar.py
+-in the given code, we modify such that
+    - a new node (pygame_node) is created and it subscribes to the topic, /obstacles
+    - we draw the obstacle after gtting the coordinates i.e the string
+    -finally we delete the key control and instead bring in the autonomous driving system
+    -we do this by calculating which side the obstacle is being published in and moving the vehicle to the opposite side if it aldready isnt 
+    
